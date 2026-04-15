@@ -1,0 +1,9 @@
+node_modules
+.env
+dist
+.DS_Store
+dataset
+
+# logs and errors
+*.log
+build_error.txt
