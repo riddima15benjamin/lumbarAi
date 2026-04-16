@@ -210,4 +210,4 @@ Accepts a patient MRI study payload and returns fuzzy-graded diagnostic results 
 
 ## License
 
-Currently unlicensed. Contact [@riddima15benjamin](https://github.com/riddima15benjamin) for usage permissions.
+This project is licensed under the MIT License - see the LICENSE file for details.
