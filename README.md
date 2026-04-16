@@ -1,10 +1,10 @@
-# 🦴 LumbarAI
+# LumbarAI
 
 An AI-powered **lumbar spine MRI grading system** that uses **Mamdani fuzzy logic inference** to automatically grade the severity of five lumbar conditions across five spinal levels — producing structured diagnostic outputs from MRI series and coordinate data.
 
 ---
 
-## 🧠 What It Does
+## What It Does
 
 LumbarAI accepts MRI study data (series descriptions + annotated coordinates) for a patient and uses a fuzzy inference engine to grade **25 lumbar findings** (5 conditions × 5 levels) as `Normal/Mild`, `Moderate`, or `Severe`.
 
@@ -24,7 +24,7 @@ LumbarAI accepts MRI study data (series descriptions + annotated coordinates) fo
 
 ---
 
-## 🔬 How the Fuzzy Engine Works
+## How the Fuzzy Engine Works
 
 The backend implements a **Mamdani fuzzy inference system** with three fuzzy input variables computed per condition/level target:
 
@@ -44,7 +44,7 @@ These are fuzzified using **triangular** and **trapezoidal** membership function
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 lumbarAi/
@@ -63,7 +63,7 @@ lumbarAi/
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -107,7 +107,7 @@ npm run backend        # FastAPI server  → http://localhost:8000
 
 ---
 
-## 🌐 API Reference
+## API Reference
 
 ### `GET /api/health`
 
@@ -174,7 +174,7 @@ Accepts a patient MRI study payload and returns fuzzy-graded diagnostic results 
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 | Layer | Technology |
 |-------|-----------|
@@ -186,7 +186,7 @@ Accepts a patient MRI study payload and returns fuzzy-graded diagnostic results 
 
 ---
 
-## 📦 Scripts
+## Scripts
 
 | Script | Description |
 |--------|-------------|
@@ -198,7 +198,7 @@ Accepts a patient MRI study payload and returns fuzzy-graded diagnostic results 
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
 1. Fork the repository
 2. Create a branch: `git checkout -b feature/your-feature`
@@ -208,6 +208,6 @@ Accepts a patient MRI study payload and returns fuzzy-graded diagnostic results 
 
 ---
 
-## 📄 License
+## License
 
 Currently unlicensed. Contact [@riddima15benjamin](https://github.com/riddima15benjamin) for usage permissions.
