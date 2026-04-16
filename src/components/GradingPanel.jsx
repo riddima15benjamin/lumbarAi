@@ -14,14 +14,14 @@ const formatLevel = (level) => level.toUpperCase().replace('_', '-');
 
 const GradeBadge = ({ grade }) => {
   if (!grade) return <span className="badge badge-unknown">N/A</span>;
-  
-  let className = "badge badge-unknown";
-  if (grade === "Normal/Mild") className = "badge badge-normal";
-  if (grade === "Moderate") className = "badge badge-moderate";
-  if (grade === "Severe") className = "badge badge-severe";
-  
+
+  let className = 'badge badge-unknown';
+  if (grade === 'Normal/Mild') className = 'badge badge-normal';
+  if (grade === 'Moderate') className = 'badge badge-moderate';
+  if (grade === 'Severe') className = 'badge badge-severe';
+
   return <span className={className}>{grade}</span>;
-}
+};
 
 export default function GradingPanel({ patient, onGradeCase, isGrading, aiResult }) {
   if (!patient) {
@@ -42,45 +42,44 @@ export default function GradingPanel({ patient, onGradeCase, isGrading, aiResult
           <div>
             <h1 style={{ fontSize: '1.5rem', marginBottom: '0.2rem' }}>Patient {patient.study_id}</h1>
             <div style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>
-              {patient.series.length} MRI Series • {patient.coordinates.length} Annotated Coordinates
+              {patient.series.length} MRI Series | {patient.coordinates.length} Annotated Coordinates
             </div>
           </div>
         </div>
-        <button 
-          className="btn btn-primary" 
+        <button
+          className="btn btn-primary"
           onClick={() => onGradeCase(patient)}
           disabled={isGrading}
         >
           {isGrading ? (
-            <><Loader2 className="spinner" size={18} /> Grading...</>
+            <><Loader2 className="spinner" size={18} /> Running fuzzy inference...</>
           ) : (
-            <><Brain size={18} /> AI Grade Case</>
+            <><Brain size={18} /> Fuzzy Grade Case</>
           )}
         </button>
       </div>
 
       <div className="panel-grid">
-        
         {aiResult && aiResult.explanation && (
           <div style={{ padding: '1.5rem', background: 'rgba(59, 130, 246, 0.1)', border: '1px solid var(--accent-primary)', borderRadius: '12px' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.5rem', color: 'var(--accent-primary)', fontWeight: '600' }}>
-              <Brain size={20} /> AI Synthesis
+              <Brain size={20} /> Fuzzy Inference Summary
             </div>
             <p style={{ lineHeight: '1.6', color: 'var(--text-primary)' }}>{aiResult.explanation}</p>
           </div>
         )}
 
-        {LEVELS.map(level => (
+        {LEVELS.map((level) => (
           <div key={level} className="level-section">
             <div className="level-header">Level {formatLevel(level)}</div>
-            
+
             <div className="condition-row" style={{ background: 'rgba(0,0,0,0.3)', fontWeight: '600', fontSize: '0.85rem', color: 'var(--text-muted)' }}>
               <div className="cond-name">Condition</div>
               <div className="cond-value">Ground Truth (CSV)</div>
-              <div className="cond-ai">AI Second Opinion</div>
+              <div className="cond-ai">Fuzzy Inference</div>
             </div>
 
-            {CONDITIONS.map(cond => {
+            {CONDITIONS.map((cond) => {
               const key = `${cond.id}_${level}`;
               const groundTruth = patient.conditions[key];
               const aiGrade = aiResult ? aiResult.grades[key] : null;
@@ -93,7 +92,7 @@ export default function GradingPanel({ patient, onGradeCase, isGrading, aiResult
                   </div>
                   <div className="cond-ai">
                     {isGrading ? (
-                      <div className="ai-loading"><Loader2 className="spinner" size={14}/> processing...</div>
+                      <div className="ai-loading"><Loader2 className="spinner" size={14} /> processing...</div>
                     ) : (
                       <GradeBadge grade={aiGrade} />
                     )}

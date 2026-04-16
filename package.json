@@ -4,7 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "node scripts/dev.mjs",
+    "dev:frontend": "vite",
+    "backend": "python -m uvicorn backend.app.main:app --reload --host 127.0.0.1 --port 8000",
     "build": "vite build",
     "preview": "vite preview"
   },
